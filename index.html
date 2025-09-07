@@ -81,9 +81,138 @@
 
     .footer{ margin: 24px 0 40px; display:flex; align-items:center; justify-content:space-between; gap: 16px; flex-wrap: wrap; font-size: .92rem; color: #a7b3cc }
     .tag{ padding:.2rem .5rem; border-radius: 8px; border:1px dashed rgba(148,163,184,.35); background: rgba(148,163,184,.06) }
+	  .domain-notification {
+            background: #ff4444;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            padding: 15px 20px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            margin-bottom: 20px;
+            border-left: 4px solid #6c5ce7;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .domain-notification-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .domain-text {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .domain-name {
+            color: #6c5ce7;
+            font-weight: 700;
+            font-size: 18px;
+        }
+        
+        .domain-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .domain-button {
+            display: flex;
+            align-items: center;
+            padding: 8px 12px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+        
+        .domain-button.atom {
+            background: #6c5ce7;
+            color: white;
+        }
+        
+        .domain-button.godaddy {
+            background: #fff;
+            color: #000;
+            border-color: #e8e8e8;
+        }
+        
+        .domain-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .domain-button.atom:hover {
+            background: #5649c9;
+        }
+        
+        .domain-button.godaddy:hover {
+            background: #f8f9fa;
+        }
+        
+        .domain-logo {
+            height: 16px;
+            margin-right: 6px;
+        }
+        
+        .close-domain {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: #888;
+            margin-left: 10px;
+        }
+        
+        .close-domain:hover {
+            color: #333;
+        }
+        
+        @media (max-width: 768px) {
+            .domain-notification-content {
+                flex-direction: column;
+            }
+            
+            .domain-buttons {
+                width: 100%;
+                justify-content: center;
+            }
+        }
   </style>
 </head>
 <body>
+  <!-- Domain Notification Banner -->
+    <div class="domain-notification" id="domainNotification">
+        <div class="domain-notification-content">
+            <div class="domain-text">
+                <span><strong>Domain For Sale:</strong></span>
+                <span class="domain-name">aiscan.online</span>
+            </div>
+            <div class="domain-buttons">
+                <a href="https://www.atom.com/name/AiScan.online" target="_blank" class="domain-button atom">
+                    <img src="https://img.atom.com/public/images/logo.svg" alt="Atom Logo" class="domain-logo">
+                    Buy on Atom
+                </a>
+                <a href="https://www.godaddy.com/domainsearch/find?domainToCheck=aiscan.online" target="_blank" class="domain-button godaddy">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/GoDaddy_logo.svg/960px-GoDaddy_logo.svg.png" alt="GoDaddy Logo" class="domain-logo">
+                    Buy on GoDaddy
+                </a>
+            </div>
+            <button class="close-domain" id="closeDomain">&times;</button>
+        </div>
+    </div>
+
+    <script>
+        // Domain notification close functionality
+        document.getElementById('closeDomain').addEventListener('click', function() {
+            document.getElementById('domainNotification').style.display = 'none';
+        });
+    </script>
   <header class="container nav">
     <div class="brand">
       <div class="logo" aria-hidden="true">
